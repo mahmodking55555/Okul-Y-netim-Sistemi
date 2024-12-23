@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğretmen Kayıt Ol</title>
+    <style>
+        /* Reset some basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set the background color and full height for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the register form */
+        .register-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Style for the form header */
+        .register-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Input field styles */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Button styles */
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        .register-btn:active {
+            background-color: #1e7e34; /* Even darker green when button is clicked */
+            transform: scale(1); /* Reset scale on click */
+        }
+
+        .register-btn:focus {
+            outline: none; /* Remove the outline when button is focused */
+        }
+
+        /* Signup link text */
+        .login-link {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back button styling */
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #d9534f; /* Red color */
+            text-decoration: none;
+            background-color: #f8d7da; /* Light red background */
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid #d9534f;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Optional: If you want to add some padding or border to the link */
+        .login-link a {
+            padding: 8px 16px;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+            display: inline-block;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            background-color: #007BFF;
+            color: white; /* White text when hovered */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Register Form Section -->
+    <div class="register-container">
+        <form class="register-form" id="register-form">
+            <h2>Öğretmen Kayıt Ol</h2>
+
+            <!-- Öğretmen Registration Form -->
+            <div class="register-ogretmen"> 
+                <div class="input-group">
+                    <label for="ogretmen-username">Kullanıcı Adı</label>
+                    <input type="text" id="ogretmen-username" name="username" placeholder="Kullanıcı adı girin" required>
+                </div>
+                <div class="input-group">
+                    <label for="ogretmen-password">Şifre</label>
+                    <input type="password" id="ogretmen-password" name="password" placeholder="Şifre girin" required>
+                </div>
+                <div class="input-group">
+                    <label for="ogretmen-email">E-posta</label>
+                    <input type="email" id="ogretmen-email" name="email" placeholder="E-posta girin" required>
+                </div>
+                <button type="submit" class="register-btn">Kayıt Ol</button>
+                <p class="login-link">Hesabınız var mı? <a href="login.html">Giriş Yapın</a></p>
+            </div>
+
+        </form>
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">← Geri</a>
+    </div>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the form and add an event listener for submit
+            const form = document.getElementById("register-form");
+
+            form.addEventListener("submit", function(event) {
+                // Prevent the default form submission behavior
+                event.preventDefault();
+
+                // Get the form data
+                const username = document.getElementById("ogretmen-username").value;
+                const password = document.getElementById("ogretmen-password").value;
+                const email = document.getElementById("ogretmen-email").value;
+
+                // Create an object to store the registration data
+                const registrationData = {
+                    username: username,
+                    password: password,
+                    email: email
+                };
+
+                // Retrieve the existing users from localStorage (if any)
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Add the new user to the users array
+                users.push(registrationData);
+
+                // Save the updated users array to localStorage
+                localStorage.setItem("users", JSON.stringify(users));
+
+                // Optionally, you can alert the user that the data has been saved
+                alert("Kayıt başarıyla tamamlandı!");
+
+                // Redirect to another page after successful registration (e.g., login page)
+                window.location.href = "login.html"; // You can change this URL to any page you prefer
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background color and full height for the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the login form */
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Style for the form header */
+.login-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input field styles */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styles */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Signup link text */
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Back button styling */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #d9534f; /* Red color */
+    text-decoration: none;
+    background-color: #f8d7da; /* Light red background */
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #d9534f;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    color: white;
+    text-decoration: none;
+}
+.role-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.role-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.role-btn:hover {
+    background-color: #45a049;
+}
+/* Style for the Kayıt Ol button */
+.signup-link a {
+    text-decoration: none;
+    color: #007BFF; /* Blue color for the link */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.signup-link a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Optional: If you want to add some padding or border to the button */
+.signup-link a {
+    padding: 8px 16px;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.signup-link a:hover {
+    background-color: #007BFF;
+    color: white; /* White text when hovered */
+}
+/* Style for the Register Button */
+.register-btn {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 12px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Make the button full-width (optional) */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and hover effect */
+}
+
+.register-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.register-btn:active {
+    background-color: #1e7e34; /* Even darker green when button is clicked */
+    transform: scale(1); /* Reset scale on click */
+}
+
+.register-btn:focus {
+    outline: none; /* Remove the outline when button is focused */
+}

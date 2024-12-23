@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css"> <!-- Link to styles2.css -->
+    <title>Öğretmen Giriş Yap</title>
+    <script>
+      // Function to handle login
+      function loginUser(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+
+        // Get the username and password input values
+        const username = document.getElementById("ogretmen-username").value;
+        const password = document.getElementById("ogretmen-password").value;
+
+        // Retrieve the users from localStorage
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Check if the username and password match any user
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            // If a match is found, login is successful
+            alert("Giriş başarılı! Hoş geldiniz, " + username);
+            
+            // Set the loggedIn flag in localStorage
+            localStorage.setItem('loggedIn', 'true');
+            
+            // Save the current user's data in localStorage
+            localStorage.setItem('currentUser', JSON.stringify(user));
+
+            // Redirect to another page after successful login
+            window.location.href = "index.html";  // You can replace this with the appropriate page
+        } else {
+            // If no match is found, show an error
+            alert("Kullanıcı adı veya şifre yanlış.");
+        }
+      }
+    </script>
+</head>
+
+<body>
+
+    <!-- Login Form Section -->
+    <div class="login-container">
+        <form class="login-form" onsubmit="loginUser(event)">
+            <h2>Öğretmen Girişi</h2>
+
+            <!-- Öğretmen Form -->
+            <div class="ogretmen"> 
+                <div class="input-group">
+                    <label for="ogretmen-username">Kullanıcı Adı</label>
+                    <input type="text" id="ogretmen-username" name="username" placeholder="Kullanıcı adı girin" required>
+                </div>
+                <div class="input-group">
+                    <label for="ogretmen-password">Şifre</label>
+                    <input type="password" id="ogretmen-password" name="password" placeholder="Şifre girin" required>
+                </div>
+                <button type="submit" class="login-btn">Giriş Yap</button>
+                <p class="signup-link">Hesabınız yok mu? <a href="register.html">Kayıt Olun</a></p>
+            </div>
+
+        </form>
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">← Geri</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Okul Yönetim Sistemi</title>
+</head>
+
+<body>
+    <header>
+        <h1>Okul Yönetim Sistemi</h1>
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu1()">☰ Menü</button>
+            <ul class="nav-links">
+                <li class="li-phone-des"><a href="#" onclick="showSection('students')">Öğrenciler</a></li>
+                <li class="li-phone-des"><a href="#" onclick="showSection('teachers')">Öğretmenler</a></li>
+                <li class="li-phone-des"><a href="#" onclick="showSection('curriculum')">Müfredat</a></li>
+                <li class="li-phone-des"><a href="#" onclick="showSection('finance')">Finans</a></li>
+                <li class="li-phone-des"><a href="#" onclick="showSection('communication')">İletişim</a></li>
+                <li class="li-phone-des"><a href="#" onclick="showSection('attendance')">Devam Yönetimi</a></li>
+            </ul>
+        </nav>
+        <div class="login-link">
+            <a href="#" id="loginLink" onclick="toggleLoginStatus()">
+                <i class="fa fa-sign-in"></i> Giriş Yap
+            </a>
+        </div>
+    </header>
+
+    <!-- Hoş Geldiniz Mesajı -->
+    <div id="welcomeMessage">
+        <h2>Okul Yönetim Sistemi'ne Hoş Geldiniz!</h2>
+    </div>
+
+    <!-- Öğrenciler Bölümü -->
+    <section id="students" class="hidden-section">
+        <h2>Öğrenci Bilgileri</h2>
+        <input type="text" id="search" placeholder="Öğrenci Ara...">
+        <div id="studentList">
+            <p>Öğrenciler: </p>
+            <ul id="studentList">
+                <li class="hidden">ID: 1, İsim: Ali, Soyisim: Veli, Sınıf: 10</li>
+                <li class="hidden">ID: 2, İsim: Ayşe, Soyisim: Yılmaz, Sınıf: 11</li>
+                <li class="hidden">ID: 3, İsim: Hasan, Soyisim: Kaya, Sınıf: 12</li>
+
+            </ul>
+        </div>
+        <div id="studentAddBtn" class="hidden-section">
+            <button onclick="addStudent()">Öğrenci Ekle</button>
+        </div>
+    </section>
+
+    <!-- Öğretmenler Bölümü -->
+    <section id="teachers" class="hidden-section">
+        <h2>Öğretmenler</h2>
+        <input type="text" id="search-ogretmen" placeholder="Öğretmen Ara...">
+        <div id="teacherList">
+            <p>Öğretmenler: </p>
+            <ul>
+
+            </ul>
+        </div>
+        <div id="teacherAddBtn" class="hidden-section">
+            <button onclick="addTeacher()">Öğretmen Ekle</button>
+        </div>
+    </section>
+    <!-- Müfredat Bölümü -->
+    <section id="curriculum" class="hidden-section">
+        <h2>Müfredat</h2>
+        <input type="text" id="curriculumSearch" placeholder="Ders Ara...">
+        <div id="curriculumList">
+            <p>Müfredat: </p>
+            <ul>
+                <li class="hidden">ID: 1, Ders Adı: Matematik, Öğretmen ID: 1, Krediler: 3</li>
+                <li class="hidden">ID: 2, Ders Adı: Kimya, Öğretmen ID: 2, Krediler: 4</li>
+                <li class="hidden">ID: 3, Ders Adı: Fizik, Öğretmen ID: 3, Krediler: 3</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Finans Bölümü -->
+    <section id="finance" class="hidden-section">
+        <h2>Finans</h2>
+        <input type="text" id="financeSearch" placeholder="Finans Ara...">
+        <div id="financeList">
+            <p>Finans: </p>
+            <ul>
+                <li class="hidden">ID: 1, Öğrenci ID: 1, Ücret: 1000 TL, Ödeme Durumu: Ödendi</li>
+                <li class="hidden">ID: 2, Öğrenci ID: 2, Ücret: 1200 TL, Ödeme Durumu: Beklemede</li>
+                <li class="hidden">ID: 3, Öğrenci ID: 3, Ücret: 1100 TL, Ödeme Durumu: Ödendi</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <section id="communication" class="hidden-section">
+        <h2>İletişim</h2>
+        <input type="text" id="communicationSearch" placeholder="İletişim Ara...">
+        <div id="communicationList">
+            <p>İletişim Bilgileri: </p>
+            <ul>
+                <li class="hidden">Yöntem: Telefon, Bilgi: 555-123-4567</li>
+                <li class="hidden">Yöntem: E-posta, Bilgi: okul@example.com</li>
+                <li class="hidden">Yöntem: Telefon, Bilgi: 555-987-6543</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Devam Yönetimi Bölümü -->
+    <section id="attendance" class="hidden-section">
+        <h2>Devam Yönetimi</h2>
+        <input type="text" id="attendanceSearch" placeholder="Devam Ara...">
+        <div id="attendanceList">
+            <p>Devam Durumu: </p>
+            <ul>
+                <li class="hidden">Öğrenci ID: 1, Tarih: 2023-10-01, Durum: Devam</li>
+                <li class="hidden">Öğrenci ID: 2, Tarih: 2023-10-01, Durum: Devamsız</li>
+                <li class="hidden">Öğrenci ID: 3, Tarih: 2023-10-02, Durum: Devam</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+
+    <script>
+        // Check login status
+        window.onload = function () {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const loginLink = document.getElementById('loginLink');
+            const studentAddBtn = document.getElementById('studentAddBtn');
+            const teacherAddBtn = document.getElementById('teacherAddBtn');
+
+            if (loggedIn === 'true') {
+                // Change text and color to "Çıkış Yap" in red
+                loginLink.innerHTML = '<i class="fa fa-sign-out"></i> Çıkış Yap';
+                loginLink.style.color = 'red';
+
+                // Show the "Öğrenci Ekle" and "Öğretmen Ekle" buttons
+                studentAddBtn.style.display = 'block';
+                teacherAddBtn.style.display = 'block';
+            }
+            const first_time = localStorage.getItem('first_time');
+
+            if (!first_time) {
+                localStorage.setItem('first_time', 'true');
+                const students = JSON.parse(localStorage.getItem("students")) || [];
+
+
+
+                const newStudent = {
+                    adi: 'Ali',
+                    soyadi: 'Veli',
+                    sinif: '10'
+                };
+
+                students.push(newStudent);
+                localStorage.setItem("students", JSON.stringify(students));
+
+
+
+
+                const students1 = JSON.parse(localStorage.getItem("students")) || [];
+
+
+
+                const newStudent1 = {
+                    adi: 'Ayşe',
+                    soyadi: 'Yılmaz',
+                    sinif: '11'
+                };
+
+                students1.push(newStudent1);
+                localStorage.setItem("students", JSON.stringify(students1));
+
+
+
+
+
+
+                const students2 = JSON.parse(localStorage.getItem("students")) || [];
+
+
+
+                const newStudent2 = {
+                    adi: 'Hasan',
+                    soyadi: 'Kaya',
+                    sinif: '12'
+                };
+
+                students2.push(newStudent2);
+                localStorage.setItem("students", JSON.stringify(students2));
+
+
+
+
+
+
+                /////
+                /////
+                ////
+
+
+
+
+                const teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+
+
+
+                const newteachers = {
+                    adi: 'Mehmet',
+                    soyadi: 'Demir',
+                    ders: 'Matematik'
+                };
+
+                teachers.push(newteachers);
+                localStorage.setItem("teachers", JSON.stringify(teachers));
+
+
+                const teachers2 = JSON.parse(localStorage.getItem("teachers")) || [];
+
+
+
+                const newteachers2 = {
+                    adi: 'Fatma',
+                    soyadi: 'Ak',
+                    ders: 'Kimya'
+                };
+
+                teachers2.push(newteachers2);
+                localStorage.setItem("teachers", JSON.stringify(teachers2));
+
+ 
+
+                const teachers3 = JSON.parse(localStorage.getItem("teachers")) || [];
+
+
+
+                const newteachers3 = {
+                    adi: 'Ahmet',
+                    soyadi: 'Yıldız',
+                    ders: 'Fizik'
+                };
+
+                teachers3.push(newteachers3);
+                localStorage.setItem("teachers", JSON.stringify(teachers3));
+
+
+            }
+            else {
+
+            }
+
+        };
+
+        // Toggle login status
+        function toggleLoginStatus() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const loginLink = document.getElementById('loginLink');
+
+            if (loggedIn === 'true') {
+                // If logged in, log the user out
+                localStorage.removeItem('loggedIn');
+                loginLink.innerHTML = '<i class="fa fa-sign-in"></i> Giriş Yap';
+                loginLink.style.color = ''; // Reset color
+                alert("Çıkış yaptınız.");
+            } else {
+                // Redirect to login page if not logged in
+                window.location.href = "login.html";
+            }
+        }
+
+        // Placeholder functions for adding student and teacher
+        function addStudent() {
+            window.location.href = "ogrenci-ekle.html";  // Redirect to the student add page
+        }
+
+        // Function for navigating to the "Öğretmen Ekle" page
+        function addTeacher() {
+            window.location.href = "ogretmen-ekle.html";  // Redirect to the teacher add page
+        }
+
+
+
+        // Update Student List
+        function updateStudentList(filter = "") {
+            const students = JSON.parse(localStorage.getItem("students")) || [];
+            const studentList = document.getElementById("studentList");
+            studentList.innerHTML = ""; // Clear the list
+
+            const filteredStudents = students.filter(student =>
+                student.adi.toLowerCase().includes(filter.toLowerCase()) ||
+                student.soyadi.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            if (filteredStudents.length === 0) {
+                studentList.innerHTML = "<li>Sonuç bulunamadı.</li>";
+                return;
+            }
+
+            filteredStudents.forEach((student, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `ID: ${index + 1}, İsim: ${student.adi}, Soyisim: ${student.soyadi}, Sınıf: ${student.sinif}`;
+                studentList.appendChild(listItem);
+            });
+        }
+
+        // Arama Kutusunu Dinle
+        document.getElementById("search").addEventListener("input", (event) => {
+            updateStudentList(event.target.value);
+        });
+
+
+        // Sayfa Yüklendiğinde Listeyi Göster
+        document.addEventListener("DOMContentLoaded", () => {
+            updateStudentList();
+        });
+
+
+        // Öğretmen Listesini Güncelle
+        function updateTeacherList(filter = "") {
+            const teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+            const teacherList = document.getElementById("teacherList");
+            teacherList.innerHTML = ""; // Listeyi temizle
+
+            const filteredTeachers = teachers.filter(teacher =>
+                teacher.adi.toLowerCase().includes(filter.toLowerCase()) ||
+                teacher.soyadi.toLowerCase().includes(filter.toLowerCase()) ||
+                teacher.ders.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            if (filteredTeachers.length === 0) {
+                teacherList.innerHTML = "<li>Sonuç bulunamadı.</li>";
+                return;
+            }
+
+            filteredTeachers.forEach((teacher, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `ID: ${index + 1}, Adı: ${teacher.adi}, Soyadı: ${teacher.soyadi}, Ders: ${teacher.ders}`;
+                teacherList.appendChild(listItem);
+            });
+        }
+
+        // Arama Kutusunu Dinle
+        document.getElementById("search-ogretmen").addEventListener("input", (event) => {
+            updateTeacherList(event.target.value);
+        });
+
+        // Sayfa Yüklendiğinde Listeyi Göster
+        document.addEventListener("DOMContentLoaded", () => {
+            updateTeacherList();
+        });
+
+    </script>
+</body>
+
+</html>

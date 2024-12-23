@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Öğrenci Ekle</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h1>Öğrenci Ekle</h1>
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="adi">Adı</label>
+                <input type="text" id="adi" name="adi" placeholder="Öğrencinin adı" required>
+            </div>
+            <div class="form-group">
+                <label for="soyadi">Soyadı</label>
+                <input type="text" id="soyadi" name="soyadi" placeholder="Öğrencinin soyadı" required>
+            </div>
+            <div class="form-group">
+                <label for="sinif">Sınıf</label>
+                <input type="text" id="sinif" name="sinif" placeholder="Öğrencinin sınıfı" required>
+            </div>
+            
+            <button type="submit">Öğrenci Ekle</button>
+        </form>
+ 
+        <a href="index.html" class="back-link">Ana Sayfaya Dön</a>
+    </div>
+
+    <script>
+      // In ogrenci-ekle.html
+document.getElementById("studentForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission for demo purposes
+
+    const adi = document.getElementById("adi").value;
+    const soyadi = document.getElementById("soyadi").value;
+    const sinif = document.getElementById("sinif").value;
+
+    // Get existing students from localStorage or initialize an empty array
+    const students = JSON.parse(localStorage.getItem("students")) || [];
+
+    // Create a new student object
+    const newStudent = {
+        adi: adi,
+        soyadi: soyadi,
+        sinif: sinif
+    };
+
+    // Add the new student to the students array
+    students.push(newStudent);
+
+    // Store the updated students array in localStorage
+ 
+    localStorage.setItem("students", JSON.stringify(students));
+
+    // Show a confirmation alert
+    alert(`Öğrenci Eklendi!\nAdı: ${adi}\nSoyadı: ${soyadi}\nSınıf: ${sinif}`);
+
+    // Clear the form after submission
+    document.getElementById("studentForm").reset();
+});
+
+
+
+
+    </script>
+
+</body>
+
+</html>

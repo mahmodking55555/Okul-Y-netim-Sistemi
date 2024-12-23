@@ -1,0 +1,305 @@
+/* Genel Stiller */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    position: relative; /* İçerik üzerinde konum ayarı */
+}
+
+/* Arka Plan Resmi */
+body::before {
+    content: "";
+    position: fixed; /* Arka plan sabit kalacak */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://media.istockphoto.com/id/1456749194/tr/foto%C4%9Fraf/college-students-arriving-for-night-school.jpg?s=2048x2048&w=is&k=20&c=EmUGRbZdvrDuxwXOecDjXnHGnAR0TpX_jd1kvjPTzGw=') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px); /* Arka planı bulanıklaştır */
+    z-index: -1; /* Diğer içeriklerin altında görünmesini sağlar */
+}
+
+/* Header ve nav stilleri */
+header {
+    background: rgba(255, 255, 255, 0.8); /* Şeffaf beyaz arka plan */
+    color: #35424a;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Assuming you have some basic styles for your header */
+.login-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 2000;
+    transition: background-color 0.3s ease;
+}
+
+.login-link:hover {
+    background-color: #0056b3;
+}
+
+.login-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-link a i {
+    margin-right: 8px;
+}
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+    /* Ensure hamburger menu stays on the top-left */
+    .menu-toggle {
+        position: fixed; /* Position it at the top-left */
+        top: 20px;
+        left: 20px;
+        z-index: 1000; /* Make sure it stays on top of other elements */
+    }
+
+    /* Mobile view: align the menu links to the left (when open) */
+    .nav-links.open {
+        left: 0;
+        top: 60px; /* Adjust if necessary to avoid overlapping with the header */
+    }
+
+    /* Adjust the login link in mobile view to stay in top-right corner */
+    .login-link {
+        top: 20px; /* Keep it at the top of the screen */
+        right: 20px; /* Stay in the right corner */
+    }
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Hamburger Menu Toggle */
+/* Hamburger Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    position: fixed; /* Position it fixed at the top-left corner */
+    top: 20px; /* 20px from the top */
+    left: 20px; /* 20px from the left */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px; /* Reduced padding */
+    font-size: 1.2rem; /* Slightly smaller font size */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    width: auto; /* Auto width to prevent it from being too long */
+    text-align: center; /* Center the text */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the hamburger button */
+.menu-toggle:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the hamburger button on mobile */
+        padding: 10px 15px; /* Adjust padding to make the button more compact */
+        font-size: 1.2rem; /* Keep font size a bit smaller */
+        border-radius: 5px;
+    }
+
+    /* Ensure the navigation links are hidden by default */
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+    }
+
+    .nav-links.open {
+        display: flex; /* Show navigation links when the menu is open */
+    }
+}
+
+/* Desktop Navigation Links */
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #35424a;
+    text-decoration: none;
+}
+.nav-links {
+    display: none; /* Hide navigation links by default on small screens */
+    flex-direction: column;
+    background-color: rgba(209, 36, 36, 0.9);
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    right: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+.nav-links.open {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Display as a flex container when open */
+}
+.li-phone-des{
+
+    background-color: rgba(226, 226, 226, 0.9);
+
+}
+/* Mobile View */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the hamburger menu button */
+    }
+
+    .nav-links {
+        display: none; /* Initially hide menu links */
+        flex-direction: column;
+        background-color: #007BFF; /* Same background as header */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        width: 100%;
+        left: 0;
+        padding: 0;
+        z-index: 10;
+    }
+
+    .nav-links.open {
+        display: flex; /* Show menu links when active */
+    }
+
+    nav ul {
+        display: none; /* Hide navigation links on mobile */
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 5px 10px;
+        display: block;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+}
+
+/* PC/Desktop View */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex; /* Always visible on desktop */
+        position: static;
+        flex-direction: row;
+        background-color: transparent;
+        width: auto;
+    }
+    .menu-toggle {
+        display: none; /* Hide the menu button on desktop */
+    }
+}
+
+/* Hoş Geldiniz Mesajı Stilleri */
+#welcomeMessage {
+    text-align: center; /* Metni ortala */
+    margin: 50px 0; /* Üst ve alt boşluk */
+    background: rgba(202, 177, 66, 0.9);
+    font-size: 2.5em; /* Yazı boyutu */
+    color: #35424a; /* Yazı rengi */
+    display: block; /* İlk açılışta görünür olacak */
+}
+
+/* Gizli Bölüm Stilleri */
+.hidden-section {
+    display: none; /* Başlangıçta gizli */
+}
+.hidden {
+    display: none; /* Gizli sınıf, öğeleri gizler */
+}
+
+section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Bölüm için şeffaf beyaz arka plan */
+    border-radius: 8px;
+    font-family: Bodoni MT Black;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* General Reset */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Input fields */
+input[type="text"] {
+    width: 80%; /* Adjust to fit most of the container */
+    max-width: 400px; /* Set a maximum width */
+    padding: 10px;
+    margin: 10px auto; /* Center the input field */
+    display: block; /* Center-align when combined with margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
